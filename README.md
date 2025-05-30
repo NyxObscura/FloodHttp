@@ -46,7 +46,7 @@ python your_script_name.py <URL> [OPTIONS]
 ```
 Example:
 ```bash
-python3 flood.py [https://target.example.com](https://target.example.com) -d 300 -p 4 -t 2000 -c 1000 -ua ./ua.txt
+python3 flood.py https://target.example.com -d 300 -p 4 -t 2000 -c 1000 -ua ./ua.txt
 ```
 Command-Line Arguments:
  * url: (Required) The target URL to test.
