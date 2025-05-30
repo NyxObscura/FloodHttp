@@ -81,6 +81,9 @@ Author & Contact
  * GitHub: [NyxObscura](github.com/NyxObscura)
  * Website: [www.obscuraworks.com](https://www.obscuraworks.com)
  * WhatsApp: [+62 851-8334-3636](wa.me/6285183343636)
+
+ 
 [License](LICENSE)
+
 This project is intended for educational and ethical testing purposes. Please ensure you have proper authorization before using it. The author or contributors are not responsible for any misuse or damage caused by this script.
 
