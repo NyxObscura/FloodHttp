@@ -114,13 +114,13 @@ Requests per second (RPS):
 
 
 
-👤 Author: [Obscuraworks, Inc.](www.obscuraworks.com) 
+👤 Author: [Obscuraworks, Inc.](https://obscuraworks.com 
 
-💻 GitHub: [@NyxObscura](www.github.com/NyxObscura)
+💻 GitHub: [@NyxObscura](https://github.com/NyxObscura)
 
-🌐 Website: [www.obscuraworks.com](www.obscuraworks.com) 
+🌐 Website: [www.obscuraworks.com](https://obscuraworks.com) 
 
-📱 WhatsApp: [+62 851-8334-3636](wa.me/6285183343636) 
+📱 WhatsApp: [+62 851-8334-3636](https://wa.me/6285183343636) 
 
 
 
