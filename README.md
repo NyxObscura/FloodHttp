@@ -41,9 +41,7 @@ pip install httpx uvloop
 ```
  * A text file containing User-Agent strings (e.g., ua.txt). If not provided or found, a default list will be used. Each User-Agent should be on a new line.
 Usage
-```bash
-python your_script_name.py <URL> [OPTIONS]
-```
+
 Example:
 ```bash
 python3 flood.py https://target.example.com -d 300 -p 4 -t 2000 -c 1000 -ua ./ua.txt
