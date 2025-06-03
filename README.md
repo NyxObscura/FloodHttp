@@ -1,7 +1,7 @@
 ---
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/NyxObscura/FloodHttp/main/x.png" alt="FloodHTTP" width="1080"/>
+  <img src="https://raw.githubusercontent.com/NyxObscura/FloodHttp/main/xx.png" alt="FloodHTTP" width="1080"/>
   <h1>FloodHTTP</h1>
   <h3>⚡ Advanced Asynchronous HTTP Load Tester ⚡</h3>
   
@@ -116,7 +116,7 @@ Requests per second (RPS):
 
 👤 Author: [Obscuraworks, Inc.](www.obscuraworks.com) 
 
-💻 GitHub: [@NyxObscura](github.com/NyxObscura)
+💻 GitHub: [@NyxObscura](www.github.com/NyxObscura)
 
 🌐 Website: [www.obscuraworks.com](www.obscuraworks.com) 
 
