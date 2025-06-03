@@ -114,7 +114,7 @@ Requests per second (RPS):
 
 
 
-👤 Author: [Obscuraworks, Inc.](https://obscuraworks.com 
+👤 Author: [Obscuraworks, Inc.](https://obscuraworks.com)
 
 💻 GitHub: [@NyxObscura](https://github.com/NyxObscura)
 
