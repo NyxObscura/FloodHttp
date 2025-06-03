@@ -1,7 +1,7 @@
 ---
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/NyxObscura/FloodHttp/main/x.png" alt="FloodHTTP" width="200"/>
+  <img src="https://raw.githubusercontent.com/NyxObscura/FloodHttp/main/x.png" alt="FloodHTTP" width="1080"/>
   <h1>FloodHTTP</h1>
   <h3>⚡ Advanced Asynchronous HTTP Load Tester ⚡</h3>
   
@@ -118,7 +118,7 @@ Requests per second (RPS)
 📸 Screenshots
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/NyxObscura/FloodHttp/main/x.png" width="700" alt="Cloudflare Dashboard"/>
+  <img src="https://raw.githubusercontent.com/NyxObscura/FloodHttp/main/x.png" width="1080" alt="Cloudflare Dashboard"/>
 </p>
 ---
 
