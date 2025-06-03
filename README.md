@@ -1,87 +1,143 @@
-# Advanced Asynchronous HTTP Load Tester
+---
 
-An aggressive, multi-process, and asynchronous Python-based load testing script designed for high-performance HTTP stress testing. This tool leverages `asyncio`, `httpx`, and `multiprocessing` for generating substantial load on web servers. It optionally uses `uvloop` for enhanced asyncio performance if available.
+<div align="center">
+  <img src="https://raw.githubusercontent.com/NyxObscura/FloodHttp/main/x.png" alt="FloodHTTP" width="200"/>
+  <h1>FloodHTTP</h1>
+  <h3>⚡ Advanced Asynchronous HTTP Load Tester ⚡</h3>
+  
+  <p>An aggressive, high-concurrency, and multi-process Python-based HTTP stress testing tool.</p>
 
-**Contributor:** Gemini
+  <p>
+    <a href="https://github.com/NyxObscura/FloodHttp"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/NyxObscura/FloodHttp?style=social"></a>
+    <a href="https://github.com/NyxObscura/FloodHttp"><img alt="GitHub forks" src="https://img.shields.io/github/forks/NyxObscura/FloodHttp?style=social"></a>
+    <a href="https://github.com/NyxObscura/FloodHttp/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/NyxObscura/FloodHttp"></a>
+    <a href="https://www.python.org/"><img alt="Python Version" src="https://img.shields.io/badge/Python-3.7%2B-blue.svg"></a>
+  </p>
+</div>
 
-## Disclaimer
+---
 
-**💀 CRITICAL WARNING: THIS SCRIPT IS EXTREMELY POWERFUL & POTENTIALLY HARMFUL 💀**
+## ⚠️ Disclaimer
 
-This tool is designed for legitimate load testing purposes on infrastructure you own or have explicit permission to test. Unauthorized use against systems you do not own can lead to service disruption and may have legal consequences. **Use responsibly and ethically.**
+> 💀 **WARNING: THIS TOOL IS EXTREMELY POWERFUL AND CAN CAUSE SERVICE DISRUPTION**  
+> Use only for ethical and authorized testing on systems you own or have explicit permission to test. Unauthorized usage may lead to legal consequences.  
+> Ensure your `ulimit -n` is sufficiently high before performing high-concurrency tests.
 
-**Ensure you have increased your system's `ulimit -n` (file descriptor limit) before running high-concurrency tests to prevent errors.**
+---
 
-## Features
+## ✨ Features
 
-* **High Concurrency:** Utilizes `multiprocessing` to leverage multiple CPU cores and `asyncio` for concurrent I/O-bound tasks within each process.
-* **HTTP/2 Support:** Leverages HTTP/2 for more efficient connections when supported by the target server.
-* **Customizable:**
-    * Target URL
-    * Test duration
-    * Number of processes
-    * Number of asynchronous threads (coroutines) per process
-    * Concurrency level per process
-    * Custom User-Agent lists
-* **Realistic Headers:** Sends a variety of randomized, yet common, HTTP headers, including `User-Agent`, `Referer`, `Accept` types, and `X-Forwarded-For`.
-* **Shared Request Counter:** Accurately tracks the total number of successful requests across all processes.
-* **Performance Monitoring:** Displays real-time Requests Per Second (RPS) and total requests.
-* **Optional `uvloop`:** Automatically uses `uvloop` for faster asyncio event loop performance if installed.
-* **Robust Error Handling:** Includes retries for network-related issues and graceful shutdown.
+- ⚙️ **High Concurrency:** Multiprocessing + AsyncIO for massive parallelism  
+- 📡 **HTTP/2 Ready:** Uses `httpx` with HTTP/2 support  
+- 🔧 **Highly Customizable:** Duration, thread count, process count, UA list, concurrency  
+- 🎭 **Realistic Headers:** Rotating `User-Agent`, `Referer`, `X-Forwarded-For`, and more  
+- 📊 **Live Metrics:** Real-time request counter and RPS display  
+- ⚡ **Optional `uvloop`:** Enhanced event loop for Linux/macOS  
+- 🛠️ **Robust Error Handling:** Retries, graceful shutdown, and connection tuning  
 
-## Prerequisites
+---
 
-* Python 3.7+
-* Required Python libraries (install via pip):
-    * `httpx`
-    * `uvloop` (optional, but recommended for performance on Linux/macOS)
+## 🧪 Usage
 
+### 🔧 Requirements
+
+- Python 3.7+
+- Install dependencies:
 ```bash
 pip install httpx uvloop
 ```
- * A text file containing User-Agent strings (e.g., ua.txt). If not provided or found, a default list will be used. Each User-Agent should be on a new line.
-Usage
+A text file containing User-Agent strings (ua.txt) is optional. If not found, a default set is used.
 
-Example:
+
+---
+
+## ▶️ Example Usage
 ```bash
 python3 flood.py https://target.example.com -d 300 -p 4 -t 2000 -c 1000 -ua ./ua.txt
 ```
-Command-Line Arguments:
- * url: (Required) The target URL to test.
- * -d, --duration: Test duration in seconds.
-   * Default: 120
- * -p, --processes: Number of processes to spawn.
-   * Default: Number of CPU cores.
- * -t, --threads: Number of asynchronous coroutines (threads) per process.
-   * Default: 1000
- * -c, --concurrency: Number of concurrent requests per process. This value should not exceed the number of threads.
-   * Default: 500
- * -ua, --user_agents: Path to the file containing User-Agent strings.
-   * Default: ./ua.txt
-  
-  
-How It Works
- * Initialization: The script parses command-line arguments and loads User-Agent strings.
- * Multiprocessing: It spawns a specified number of worker processes.
- * Asynchronous Workers: Each process runs an asyncio event loop, managing multiple asynchronous "attack workers" (coroutines).
- * HTTP Requests:
-   * Each attack worker continuously sends HTTP GET requests to the target URL until the test duration expires.
-   * Requests are made using httpx.AsyncClient with HTTP/2 enabled and customized connection limits.
-   * Randomized headers are generated for each request to simulate diverse clients.
- * Concurrency Control: An asyncio.Semaphore within each process limits the number of concurrent active requests to the specified concurrency level.
- * Status & Reporting:
-   * A shared counter (multiprocessing.Value) tracks the total number of successful requests across all processes.
-   * The main process displays the elapsed time, total successful requests, and current RPS.
-   * Upon completion or interruption (Ctrl+C), it provides a summary of the test.
-  
- 
-Author & Contact
- * GitHub: [NyxObscura](github.com/NyxObscura)
- * Website: [www.obscuraworks.com](https://www.obscuraworks.com)
- * WhatsApp: [+62 851-8334-3636](wa.me/6285183343636)
+## ⚙️ Command Line Options
 
- 
-[License](LICENSE)
+Argument	Description	Default
 
-This project is intended for educational and ethical testing purposes. Please ensure you have proper authorization before using it. The author or contributors are not responsible for any misuse or damage caused by this script.
+url	Required – Target URL	—
+-d, --duration	Test duration (in seconds)	120
+-p, --processes	Number of CPU processes	CPU cores
+-t, --threads	Async coroutines per process	1000
+-c, --concurrency	Concurrent requests per process (≤ threads)	500
+-ua, --user_agents	Path to UA list file (ua.txt)	./ua.txt
 
+
+
+---
+
+## 🔍 How It Works
+
+> 📦 Initialization
+
+> Parse CLI arguments
+
+> Load User-Agent strings from file or use fallback list
+
+
+## ⚙️ Multiprocessing & AsyncIO
+
+Spawns multiple processes
+
+Each process runs its own event loop with async workers
+
+
+## 🌐 HTTP Requesting
+
+Uses httpx.AsyncClient for non-blocking requests
+
+HTTP/2 enabled when available
+
+Randomized headers per request
+
+
+## 📈 Concurrency Control
+
+asyncio.Semaphore limits active tasks per process
+
+
+## 📊 Status Reporting
+
+Shared counter via multiprocessing.Value
+
+Main process prints:
+
+Elapsed time
+
+Total successful requests
+
+Requests per second (RPS)
+
+
+---
+
+📸 Screenshots
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/NyxObscura/FloodHttp/main/x.png" width="700" alt="Cloudflare Dashboard"/>
+</p>
+---
+
+👤 Author
+
+💻 GitHub: @NyxObscura
+
+🌐 Website: www.obscuraworks.com
+
+📱 WhatsApp: +62 851-8334-3636
+
+
+
+---
+
+📜 License
+
+This project is licensed under the terms of the MIT License.
+
+> ⚠️ This project is strictly for educational and ethical purposes only. The author is not responsible for misuse.
+
+---
