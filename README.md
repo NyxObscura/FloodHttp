@@ -105,30 +105,22 @@ asyncio.Semaphore limits active tasks per process
 Shared counter via multiprocessing.Value
 
 Main process prints:
-
-Elapsed time
-
-Total successful requests
-
-Requests per second (RPS)
+Elapsed time:
+Total successful requests:
+Requests per second (RPS):
 
 
 ---
 
-📸 Screenshots
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/NyxObscura/FloodHttp/main/x.png" width="1080" alt="Cloudflare Dashboard"/>
-</p>
----
 
-👤 Author
+👤 Author: [Obscuraworks, Inc.](www.obscuraworks.com) 
 
-💻 GitHub: @NyxObscura
+💻 GitHub: [@NyxObscura](github.com/NyxObscura)
 
-🌐 Website: www.obscuraworks.com
+🌐 Website: [www.obscuraworks.com](www.obscuraworks.com) 
 
-📱 WhatsApp: +62 851-8334-3636
+📱 WhatsApp: [+62 851-8334-3636](wa.me/6285183343636) 
 
 
 
@@ -136,8 +128,8 @@ Requests per second (RPS)
 
 📜 License
 
-This project is licensed under the terms of the MIT License.
+This project is licensed under the terms of the [MIT License.](LICENSE)
 
-> ⚠️ This project is strictly for educational and ethical purposes only. The author is not responsible for misuse.
+## > ⚠️ This project is strictly for educational and ethical purposes only. The author is not responsible for misuse.
 
 ---
