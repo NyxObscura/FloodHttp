@@ -130,6 +130,6 @@ Requests per second (RPS):
 
 This project is licensed under the terms of the [MIT License.](LICENSE)
 
-## > ⚠️ This project is strictly for educational and ethical purposes only. The author is not responsible for misuse.
+## ⚠️ This project is strictly for educational and ethical purposes only. The author is not responsible for misuse.
 
 ---
