@@ -44,7 +44,7 @@
 - Python 3.7+
 - Install dependencies:
 ```bash
-pip install httpx uvloop
+pip install httpx uvloop h2
 ```
 A text file containing User-Agent strings (ua.txt) is optional. If not found, a default set is used.
 
